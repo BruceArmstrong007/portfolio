@@ -1,0 +1,41 @@
+<div class="container">
+  <mat-stepper  class="step" #stepper>
+    <mat-step>
+      <ng-template matStepLabel><span class="stepColor">Deemsys</span></ng-template>
+      <mat-grid-list [cols]="breakpoint" rowHeight="2:1" (window:resize)="onResize($event)">
+        <mat-grid-tile><h1 class="title">Web Developer Intern</h1></mat-grid-tile>
+        <mat-grid-tile><h3 class="title">Building and Maintainance of Consultant Information Management System - CIMS</h3></mat-grid-tile>
+        <p class="next">
+          <button class="stepbtn" matStepperNext> <mat-icon class="play" matTooltipPosition="above" matTooltip="Next">arrow_forward</mat-icon></button>
+        </p>
+      </mat-grid-list>
+
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel><span class="stepColor">Phicode</span></ng-template>
+      <mat-grid-list [cols]="breakpoint" rowHeight="2:1" (window:resize)="onResize($event)">
+        <mat-grid-tile><h1 class="title">Full Stack Web Developer</h1></mat-grid-tile>
+        <mat-grid-tile><h3 class="title">Building and Maintainance of Aerodyne <a target="_blank" matTooltip="Goto" class="links" href="https://aerodyne.in/">.com</a> , <a target="_blank" matTooltip="Goto" class="links" href="https://aerodyne.group/">.group</a> & <a target="_blank" matTooltip="Goto" class="links" href="https://vertikaliti.com/">Vertikaliti.com</a></h3>
+      </mat-grid-tile>
+      <p class="next">
+        <button class="stepbtn" matStepperPrevious><mat-icon class="play" matTooltipPosition="above" matTooltip="Previous">arrow_backward</mat-icon></button>
+        <button class="stepbtn" matStepperNext><mat-icon class="play" matTooltipPosition="above" matTooltip="Next">arrow_forward</mat-icon></button>
+      </p>
+      </mat-grid-list>
+
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel><span class="stepColor">Resume</span></ng-template>
+      <mat-grid-list [cols]="breakpoint" rowHeight="2:1" (window:resize)="onResize($event)">
+        <mat-grid-tile><h1 class="title">For more details checkout my Resume</h1></mat-grid-tile>
+        <mat-grid-tile><a target="_blank" href="assets/resume/MyResume.pdf" class="button">Resume</a></mat-grid-tile>
+        <p class="next">
+          <button class="stepbtn" matStepperPrevious><mat-icon class="play"  matTooltipPosition="above" matTooltip="Previous">arrow_backward</mat-icon></button>
+        </p>
+      </mat-grid-list>
+
+    </mat-step>
+  </mat-stepper>
+</div>
+
+

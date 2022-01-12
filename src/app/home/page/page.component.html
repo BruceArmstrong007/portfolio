@@ -1,0 +1,29 @@
+<div class="size">
+<div class="nav color">
+  <span  class="border" [ngClass]="{'borderSelected' : currentRoute == 'AboutPage'}" [routerLink]="''">
+    <mat-icon class="icon" matTooltip="About Me" matTooltipPosition="above" [ngClass]="{'IconSelected' : currentRoute == 'AboutPage'}" aria-hidden="false" >assignment_ind</mat-icon>
+  </span>
+  <span  class="border" [ngClass]="{'borderSelected' : currentRoute == 'TechPage'}" [routerLink]="'tech'">
+    <mat-icon class="icon" matTooltip="Technical Skills" matTooltipPosition="above" [ngClass]="{'IconSelected' : currentRoute == 'TechPage'}" aria-hidden="false" >assessment</mat-icon>
+  </span>
+  <span  class="border" [ngClass]="{'borderSelected' : currentRoute == 'WorkPage'}" [routerLink]="'work'">
+    <mat-icon class="icon" matTooltip="My Works" matTooltipPosition="above" [ngClass]="{'IconSelected' : currentRoute == 'WorkPage'}" aria-hidden="false" >work</mat-icon>
+  </span>
+  <span class="border" [ngClass]="{'borderSelected' : currentRoute == 'ContactPage'}" [routerLink]="'contact'">
+    <mat-icon  class="icon" matTooltip="My Contact" matTooltipPosition="above" [ngClass]="{'IconSelected' : currentRoute == 'ContactPage'}" aria-hidden="false" >contacts</mat-icon>
+  </span>
+</div>
+
+
+
+<div class="color high" [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+  <span class="sound" (click)="sound();">
+    <mat-icon class="icon" matTooltip="Music is OFF" aria-hidden="false" *ngIf="volume == false">volume_off</mat-icon>
+    <mat-icon class="icon" matTooltip="Music is ON" aria-hidden="false" *ngIf="volume == true">volume_up</mat-icon>
+  </span>
+</div>
+</div>
+<audio #aud autoplay loop *ngIf="volume" hidden="">
+  <source src="assets/music/space.ogg" type="audio/ogg">
+</audio>

@@ -1,0 +1,49 @@
+<div class="container">
+  <form class="form" method="post" (submit)="send($event)">
+    <p>
+      <mat-form-field class="color field" appearance="standard">
+        <mat-label class="color">E-mail</mat-label>
+        <input type="email" class="color" matInput name="email" [(ngModel)]="email" placeholder="Enter your E-mail Address">
+        <mat-hint class="color" align="end">Required*</mat-hint>
+        <span class="prefix" matPrefix>From :</span>
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="color field" appearance="standard">
+        <mat-label class="color">brucearmstrongofficial@gmail.com</mat-label>
+        <input type="email" class="color" readonly disabled matInput placeholder="brucearmstrongofficial@gmail.com">
+        <span class="prefix" matPrefix>To :</span>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field class="color field" appearance="standard">
+        <mat-label class="color">Subject</mat-label>
+        <input type="text" class="color" name="subject" [(ngModel)]="subject" matInput placeholder="Enter Subject of your Message">
+        <mat-hint class="color" align="end">Required*</mat-hint>
+        <mat-icon matSuffix>subject</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="color field" appearance="standard">
+        <mat-label class="color">Message</mat-label>
+        <textarea rows="3" name="message" [(ngModel)]="message" class="color" matInput placeholder="Enter your Message"></textarea>
+        <mat-hint class="color" align="end">Required*</mat-hint>
+        <mat-icon matSuffix>Message</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <button class="button" type="submit">SEND<mat-icon style="padding: 0;margin: 0;font-size: 15px;">send</mat-icon></button>
+    </p>
+  </form>
+  <div>
+    <p class="social">
+      <a target="_blank" href="https://www.facebook.com/profile.php?id=100009603120120" matTooltip="Facebook" class="fa fa-facebook icon"></a>
+      <a target="_blank" href="https://www.instagram.com/brucearmstrong007/" matTooltip="Instagram" class="fa fa-instagram icon"></a>
+      <a target="_blank" href="https://www.linkedin.com/in/bruce-armstrong-7424441b7/" matTooltip="Linkedin" class="fa fa-linkedin icon"></a>
+      <a target="_blank" href="https://www.snapchat.com/add/brucearmstrong1" matTooltip="Snapchat" class="fa fa-snapchat-ghost icon"></a>
+      <a target="_blank" href="https://github.com/BruceArmstrong007" matTooltip="Github" class="fa fa-github icon"></a>
+    </p>
+  </div>
+</div>
