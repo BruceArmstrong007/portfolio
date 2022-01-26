@@ -1,22 +1,176 @@
- <mat-grid-list class="grid" [cols]="breakpoint" rowHeight="2:1" (window:resize)="onResize($event)">
-  <mat-grid-tile><a class="sites" href="https://angular.io/" target="_blank"><img  class="ico" matTooltip="Angular 12"matTooltipPosition="right" src="assets/image/webp/angular.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://material.angular.io/" target="_blank"><img  class="ico" matTooltip="Angular Material"matTooltipPosition="right" src="assets/image/webp/angularmaterial.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://blog.getbootstrap.com/2021/05/05/bootstrap-5/" target="_blank"><img  class="ico" matTooltip="BootStrap 5"matTooltipPosition="right" src="assets/image/webp/bootstrap.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://www.w3schools.com/css/" target="_blank"><img  class="ico" matTooltip="CSS 3"matTooltipPosition="right" src="assets/image/webp/css3.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://www.djangoproject.com/" target="_blank"><img  class="ico" matTooltip="Django Backend Python Framework"matTooltipPosition="right" src="assets/image/webp/django.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://expressjs.com/" target="_blank"><img  class="ico" matTooltip="Express Backend NodeJS Library"matTooltipPosition="right" src="assets/image/webp/expressjs.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://firebase.google.com/" target="_blank"><img  class="ico" matTooltip="FireBase (Auth,Storage,DB,Hosting)"matTooltipPosition="right" src="assets/image/webp/firebase.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://github.com/" target="_blank"><img  class="ico" matTooltip="Github"matTooltipPosition="right" src="assets/image/webp/github.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://developers.google.com/maps/documentation/javascript/overview" target="_blank"><img  class="ico" matTooltip="Google Maps JS API"matTooltipPosition="right" src="assets/image/webp/googlemaps.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://www.w3schools.com/html/" target="_blank"><img  class="ico" matTooltip="HTML 5"matTooltipPosition="right" src="assets/image/webp/html5.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://www.w3schools.com/js/" target="_blank"><img  class="ico" matTooltip="JavaScript 5"matTooltipPosition="right" src="assets/image/webp/javascript.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://jwt.io/" target="_blank"><img  class="ico" matTooltip="JWT Token"matTooltipPosition="right" src="assets/image/webp/jwttoken.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://dev.mysql.com/" target="_blank"><img  class="ico" matTooltip="MySQL"matTooltipPosition="right" src="assets/image/webp/mysql.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://nodejs.org/en/" target="_blank"><img  class="ico" matTooltip="Node JS"matTooltipPosition="right" src="assets/image/webp/nodejs.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://www.python.org/" target="_blank"><img  class="ico" matTooltip="Python"matTooltipPosition="right" src="assets/image/webp/python.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://socket.io/" target="_blank"><img  class="ico" matTooltip="SocketI/O Node Library"matTooltipPosition="right" src="assets/image/webp/socketio.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://threejs.org/" target="_blank"><img  class="ico" matTooltip="Three JS 3D Web Library"matTooltipPosition="right" src="assets/image/webp/three.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://nodemailer.com/about/" target="_blank"><img  class="ico" matTooltip="Nodemailer Email Library"matTooltipPosition="right" src="assets/image/webp/nodemailer.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://www.w3schools.com/w3css/defaulT.asp" target="_blank"><img  class="ico" matTooltip="W3 CSS Frontend FrameWork"matTooltipPosition="right" src="assets/image/webp/w3css.webp"></a></mat-grid-tile>
-  <mat-grid-tile><a class="sites" href="https://jquery.com/" target="_blank"><img  class="ico" matTooltip="JQuery JS Library"matTooltipPosition="right" src="assets/image/webp/jquery.webp"></a></mat-grid-tile>
+<mat-grid-list
+  class="grid"
+  [cols]="breakpoint"
+  rowHeight="2:1"
+  (window:resize)="onResize($event)"
+>
+  <mat-grid-tile
+    ><a class="sites" href="https://angular.io/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="Angular 12"
+        matTooltipPosition="right"
+        src="assets/image/webp/angular.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://material.angular.io/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="Angular Material"
+        matTooltipPosition="right"
+        src="assets/image/webp/angularmaterial.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a
+      class="sites"
+      href="https://blog.getbootstrap.com/2021/05/05/bootstrap-5/"
+      target="_blank"
+      ><img
+        class="ico"
+        matTooltip="BootStrap 5"
+        matTooltipPosition="right"
+        src="assets/image/webp/bootstrap.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://rxjs.dev/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="RxJS"
+        matTooltipPosition="right"
+        src="assets/image/webp/rxjs.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://www.djangoproject.com/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="Django Backend Python Framework"
+        matTooltipPosition="right"
+        src="assets/image/webp/django.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://expressjs.com/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="Express Backend NodeJS Library"
+        matTooltipPosition="right"
+        src="assets/image/webp/expressjs.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://firebase.google.com/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="FireBase (Auth,Storage,DB,Hosting)"
+        matTooltipPosition="right"
+        src="assets/image/webp/firebase.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://github.com/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="Github"
+        matTooltipPosition="right"
+        src="assets/image/webp/github.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a
+      class="sites"
+      href="https://developers.google.com/maps/documentation/javascript/overview"
+      target="_blank"
+      ><img
+        class="ico"
+        matTooltip="Google Maps JS API"
+        matTooltipPosition="right"
+        src="assets/image/webp/googlemaps.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://ngrx.io/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="NGRX"
+        matTooltipPosition="right"
+        src="assets/image/webp/ngrx.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://www.w3schools.com/js/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="JavaScript 5"
+        matTooltipPosition="right"
+        src="assets/image/webp/javascript.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://jwt.io/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="JWT Token"
+        matTooltipPosition="right"
+        src="assets/image/webp/jwttoken.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://dev.mysql.com/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="MySQL"
+        matTooltipPosition="right"
+        src="assets/image/webp/mysql.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://nodejs.org/en/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="Node JS"
+        matTooltipPosition="right"
+        src="assets/image/webp/nodejs.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://www.python.org/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="Python"
+        matTooltipPosition="right"
+        src="assets/image/webp/python.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://socket.io/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="SocketI/O Node Library"
+        matTooltipPosition="right"
+        src="assets/image/webp/socketio.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://threejs.org/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="Three JS 3D Web Library"
+        matTooltipPosition="right"
+        src="assets/image/webp/three.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://nodemailer.com/about/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="Nodemailer Email Library"
+        matTooltipPosition="right"
+        src="assets/image/webp/nodemailer.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a
+      class="sites"
+      href="https://www.w3schools.com/w3css/defaulT.asp"
+      target="_blank"
+      ><img
+        class="ico"
+        matTooltip="W3 CSS Frontend FrameWork"
+        matTooltipPosition="right"
+        src="assets/image/webp/w3css.webp" /></a
+  ></mat-grid-tile>
+  <mat-grid-tile
+    ><a class="sites" href="https://jquery.com/" target="_blank"
+      ><img
+        class="ico"
+        matTooltip="JQuery JS Library"
+        matTooltipPosition="right"
+        src="assets/image/webp/jquery.webp" /></a
+  ></mat-grid-tile>
 </mat-grid-list>
