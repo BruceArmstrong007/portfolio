@@ -1,46 +1,85 @@
 <div class="shell">
-  <form class="form" method="post" (submit)="send($event)">
-    <p>
-      <mat-form-field  class="color field" appearance="standard">
-        <mat-label class="color">E-mail</mat-label>
-        <input type="email" class="color" matInput name="email" [(ngModel)]="email" placeholder="Enter your E-mail Address">
-        <mat-hint class="color" align="end">Required*</mat-hint>
-        <span class="prefix" matPrefix>From :</span>
-        <mat-icon matSuffix>email</mat-icon>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field  class="color field" appearance="standard">
-        <mat-label class="color">brucearmstrongofficial@gmail.com</mat-label>
-        <input type="email" class="color" readonly disabled matInput placeholder="brucearmstrongofficial@gmail.com">
+  <form class="form" [formGroup]="form" #contact="ngForm" method="post" (ngSubmit)="send($event)">
+    <div class="row">
+      <div class="col-12">
+        <mat-form-field  class="color w-75 p-0 m-0" appearance="standard">
+          <mat-label class="color">E-mail</mat-label>
+          <input type="email" class="color" matInput name="email" formControlName="email" placeholder="Enter your E-mail Address">
+          <mat-hint class="color" align="end">Required*</mat-hint>
+          <span class="prefix" matPrefix>From :</span>
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="f.email.hasError('required')">
+            Email is <strong>required</strong>.
+          </mat-error>
+          <mat-error *ngIf="f.email.hasError('pattern')">
+            Email is <strong>not valid</strong>.
+          </mat-error>
+          <mat-error *ngIf="f.email.hasError('minlength')">
+            Email should have <strong>minimum of 4 characters</strong>.
+          </mat-error>
+          <mat-error *ngIf="f.email.hasError('maxlength')">
+            Email can have <strong>maximum of 320 characters</strong>.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+      <mat-form-field  class="color w-75 p-0 m-0" appearance="standard">
+        <input type="email" class="color" readonly matInput formControlName="myemail"  placeholder="brucearmstrongofficial@gmail.com">
         <span class="prefix" matPrefix>To :</span>
       </mat-form-field>
-    </p>
+      </div>
+    </div>
 
-    <p>
-      <mat-form-field  class="color field" appearance="standard">
+    <div class="row">
+      <div class="col-12">
+      <mat-form-field  class="color w-75 p-0 m-0" appearance="standard">
         <mat-label class="color">Subject</mat-label>
-        <input type="text" class="color" name="subject" [(ngModel)]="subject" matInput placeholder="Enter Subject of your Message">
+        <input type="text" class="color" name="subject" matInput formControlName="subject" placeholder="Enter Subject of your Message">
         <mat-hint class="color" align="end">Required*</mat-hint>
         <mat-icon matSuffix>subject</mat-icon>
+        <mat-error *ngIf="f.subject.hasError('required')">
+          Subject is <strong>required</strong>.
+        </mat-error>
+        <mat-error *ngIf="f.subject.hasError('minlength')">
+          Subject should have <strong>minimum of 10 characters</strong>.
+        </mat-error>
+        <mat-error *ngIf="f.subject.hasError('maxlength')">
+          Subject can have <strong>maximum of 60 characters</strong>.
+        </mat-error>
       </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field  class="color field" appearance="standard">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+      <mat-form-field  class="color w-75 p-0 m-0" appearance="standard">
         <mat-label class="color">Message</mat-label>
-        <textarea rows="3" name="message" [(ngModel)]="message" class="color" matInput placeholder="Enter your Message"></textarea>
+        <textarea rows="3" name="message" class="color" matInput formControlName="message" placeholder="Enter your Message"></textarea>
         <mat-hint class="color" align="end">Required*</mat-hint>
         <mat-icon matSuffix>Message</mat-icon>
+        <mat-error *ngIf="f.message.hasError('required')">
+          Message is <strong>required</strong>.
+        </mat-error>
+        <mat-error *ngIf="f.message.hasError('minlength')">
+          Message should have <strong>minimum of 10 characters</strong>.
+        </mat-error>
+        <mat-error *ngIf="f.message.hasError('maxlength')">
+          Message can have <strong>maximum of 500 characters</strong>.
+        </mat-error>
       </mat-form-field>
-    </p>
-    <p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
       <button class="button" type="submit">SEND<mat-icon style="padding: 0;margin: 0;font-size: 15px;">send</mat-icon></button>
-    </p>
+      </div>
+    </div>
   </form>
   <div>
     <p class="social">
       <a target="_blank" href="https://www.facebook.com/profile.php?id=100009603120120" matTooltip="Facebook" class="fa fa-facebook icon"></a>
-      <a target="_blank" href="https://www.instagram.com/brucearmstrong007/" matTooltip="Instagram" class="fa fa-instagram icon"></a>
+      <a target="_blank" href="https://www.instagram.com/bruce.armstrong0/" matTooltip="Instagram" class="fa fa-instagram icon"></a>
       <a target="_blank" href="https://www.linkedin.com/in/bruce-armstrong-7424441b7/" matTooltip="Linkedin" class="fa fa-linkedin icon"></a>
       <a target="_blank" href="https://www.snapchat.com/add/brucearmstrong1" matTooltip="Snapchat" class="fa fa-snapchat-ghost icon"></a>
       <a target="_blank" href="https://github.com/BruceArmstrong007" matTooltip="Github" class="fa fa-github icon"></a>

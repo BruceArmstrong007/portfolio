@@ -25,11 +25,11 @@
 
 .icon:hover{
   transform: scale(1.1);
-  color: rgb(0, 183, 255);
+  color: rgb(0, 234, 255);
 }
 .iconSelected{
   transform: scale(1.1);
-  color: rgb(0, 183, 255);
+  color: rgb(0, 234, 255);
 }
 
 .border{
