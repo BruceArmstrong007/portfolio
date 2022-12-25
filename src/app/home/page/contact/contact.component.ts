@@ -44,7 +44,7 @@ export class ContactComponent implements OnInit {
   }
 
 send(event : any){
-if(this.f.valid){
+if(this.form.valid){
   emailjs.sendForm('service_jgojg9h', 'template_7gg8w9e', event.target, 'user_MPAJU2uzehVdsNbuLRx70')
   .then((result: EmailJSResponseStatus) => {
     if(result?.status === 200){
