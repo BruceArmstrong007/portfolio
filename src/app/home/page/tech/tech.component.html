@@ -2,6 +2,7 @@
   <mat-form-field class="color w-50 p-0 m-0" appearance="standard">
     <mat-label class="color">Filter Skills</mat-label>
     <input type="text" class="color" matInput (keyup)="doFilter($event?.target)" placeholder="Enter any skill">
+    <mat-icon matSuffix>filter_list</mat-icon>
   </mat-form-field>
   <table class="table" mat-table (matSortChange)="announceSortChange($event)" [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc">
     <ng-container matColumnDef="position">

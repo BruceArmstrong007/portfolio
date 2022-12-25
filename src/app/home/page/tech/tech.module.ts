@@ -6,6 +6,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 const routes: Routes = [{
  path : '',
@@ -23,6 +24,7 @@ const routes: Routes = [{
     MatPaginatorModule,
     MatSortModule,
     MatInputModule,
+    MatIconModule,
     RouterModule.forChild(routes)
   ],
   exports: [],
