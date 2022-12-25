@@ -1,7 +1,7 @@
-<div class="container">
+<div class="shell">
   <form class="form" method="post" (submit)="send($event)">
     <p>
-      <mat-form-field class="color field" appearance="standard">
+      <mat-form-field  class="color field" appearance="standard">
         <mat-label class="color">E-mail</mat-label>
         <input type="email" class="color" matInput name="email" [(ngModel)]="email" placeholder="Enter your E-mail Address">
         <mat-hint class="color" align="end">Required*</mat-hint>
@@ -10,7 +10,7 @@
       </mat-form-field>
     </p>
     <p>
-      <mat-form-field class="color field" appearance="standard">
+      <mat-form-field  class="color field" appearance="standard">
         <mat-label class="color">brucearmstrongofficial@gmail.com</mat-label>
         <input type="email" class="color" readonly disabled matInput placeholder="brucearmstrongofficial@gmail.com">
         <span class="prefix" matPrefix>To :</span>
@@ -18,7 +18,7 @@
     </p>
 
     <p>
-      <mat-form-field class="color field" appearance="standard">
+      <mat-form-field  class="color field" appearance="standard">
         <mat-label class="color">Subject</mat-label>
         <input type="text" class="color" name="subject" [(ngModel)]="subject" matInput placeholder="Enter Subject of your Message">
         <mat-hint class="color" align="end">Required*</mat-hint>
@@ -26,7 +26,7 @@
       </mat-form-field>
     </p>
     <p>
-      <mat-form-field class="color field" appearance="standard">
+      <mat-form-field  class="color field" appearance="standard">
         <mat-label class="color">Message</mat-label>
         <textarea rows="3" name="message" [(ngModel)]="message" class="color" matInput placeholder="Enter your Message"></textarea>
         <mat-hint class="color" align="end">Required*</mat-hint>

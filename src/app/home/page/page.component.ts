@@ -14,7 +14,7 @@ import {slideInAnimation} from './animation';
 
 
 export class PageComponent implements OnInit {
-  currentRoute : any;
+  currentRoute : any = 'AboutPage';
   volume = false;
   @ViewChild("aud") audio : any;
   constructor() {

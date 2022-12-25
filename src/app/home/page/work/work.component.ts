@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkComponent implements OnInit {
   constructor() { }
-breakpoint = 2;
+  switchTab = 0;
 
   ngOnInit() {
-    this.breakpoint = (window.innerWidth <= 500) ? 1 : 2;
 }
-onResize(event : any) {
-  this.breakpoint = (event.target.innerWidth <= 500) ? 1 : 2;
+
+changeTab(value : any){
+  this.switchTab = value;
 }
 
 }

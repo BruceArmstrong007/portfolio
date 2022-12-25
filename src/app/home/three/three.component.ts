@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation, HostListener } from '@angular/core';
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 
 @Component({
@@ -8,107 +9,117 @@ import * as THREE from 'three';
   styleUrls: ['./three.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class ThreeComponent implements OnInit {
+export class ThreeComponent {
   @ViewChild("cmp") container : any;
- scene :any;
- camera :any;
- renderer :any;
-  LINE_COUNT = 1500;
-pa : any;
-va : any;
-pos: any;
-r = 50;
-g = 50;
-b = 50;
-  constructor() {   }
+  scene : any;
+  camera : any;
+  renderer : any;
+  controls : any;
+  clock : any;
+  composer : any;
+  glitchPass : any;
+  animate : any;
+  SEPARATION = 200;
+  AMOUNTX = 500;
+  AMOUNTY = 500;
+  particles : any;
+  count = 0;
+  r = 0;
+  g = 0;
+  b = 0;
+  constructor() {
+   }
 
 
    ngAfterViewInit() {
 
     this.scene = new THREE.Scene();
-
-
-    this.scene.background = new THREE.Color("rgb(50,50,50)");
-
-    this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-
-    this.renderer = new THREE.WebGLRenderer({antialias:true});
-
+    this.scene.background = new THREE.Color("rgb("+this.r+","+this.g+","+this.b+")");
+    this.camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,1,1000);
+    this.camera.position.y = 1000;
+    this.clock = new THREE.Clock();
+    this.renderer = new THREE.WebGLRenderer({antialias:true, alpha: true });
     this.renderer.setSize(this.container.nativeElement.offsetWidth, this.container.nativeElement.offsetHeight);
-
-
     this.container.nativeElement.appendChild(this.renderer.domElement);
-
-    this.camera.position.z = 5;
-    let geom = new THREE.BufferGeometry();
-    geom.setAttribute("position", new THREE.BufferAttribute(new Float32Array(6*this.LINE_COUNT), 3));
-    geom.setAttribute("velocity", new THREE.BufferAttribute(new Float32Array(2*this.LINE_COUNT), 1));
-    this.pos = geom.getAttribute("position");
-    this.pa  = this.pos.array;
-    let vel = geom.getAttribute("velocity");
-    this.va = vel.array;
-
-        for (let line_index= 0; line_index < this.LINE_COUNT; line_index++) {
-            var x = Math.random() * 400 - 200;
-            var y = Math.random() * 200 - 100;
-            var z = Math.random() * 500 - 100;
-            var xx = x;
-            var yy = y;
-            var zz = z;
-            //line start
-            this.pa[6*line_index] = x;
-            this.pa[6*line_index+1] = y;
-            this.pa[6*line_index+2] = z;
-            //line end
-            this.pa[6*line_index+3] = xx;
-            this.pa[6*line_index+4] = yy;
-            this.pa[6*line_index+5] = zz;
-
-            this.va[2*line_index] = this.va[2*line_index+1]= 0;
-        }
-        let mat = new THREE.LineBasicMaterial({color: 0xffffff});
-        let lines = new THREE.LineSegments(geom, mat);
-        this.scene.add(lines);
+    this.controls = new OrbitControls(this.camera,this.renderer.domElement);
+    this.controls.autoRotate = true;
+    this.controls.autoRotateSpeed = 1;
+    this.controls.enableDamping = true;
+    this.controls.enablePan = false;
+    this.controls.enableRotate = false;
+    this.controls.enableZoom = false;
 
 
-    this.animate();
+    this.setWaves();
+    this.animateFrames();
 
-    setInterval(()=>{
-      this.r = Math.floor(Math.random()*(150 - 50)+50);
-      this.g = Math.floor(Math.random()*(150 - 50)+50);
-      this.b = Math.floor(Math.random()*(150 - 50)+50);
-      this.scene.background = new THREE.Color("rgb("+this.r+","+this.g+","+this.b+")");
-    }, 500)
+    // setInterval(()=>{
+    //   let random = Math.random();
+    //   this.r = Math.floor(random*(150 - 50));
+    //   this.g = Math.floor(random*(150 - 50));
+    //   this.b = Math.floor(random*(150 - 50));
+    //   this.scene.background = new THREE.Color("rgb("+this.r+","+this.g+","+this.b+")");
+    // }, 600)
   }
 
-    animate() {
-      window.requestAnimationFrame(() => this.animate());
+    animateFrames() {
+      window.requestAnimationFrame(() => this.animateFrames());
+      this.renderer.render(this.scene,this.camera);
+      this.controls.update();
+      this.waveUpdate();
+      const time = this.clock.getElapsedTime();
+  }
 
-    this.renderer.render( this.scene, this.camera );
 
-    for (let line_index= 0; line_index < this.LINE_COUNT; line_index++) {
-      this.va[2*line_index] += 0.03;
-      this.va[2*line_index+1] += 0.025;
-
-      this.pa[6*line_index+2] += this.va[2*line_index];
-      this.pa[6*line_index+5] += this.va[2*line_index+1];
-
-      if(this.pa[6*line_index+5] > 200) {
-          var z= Math.random() * 200 - 100;
-          this.pa[6*line_index+2] = z;
-          this.pa[6*line_index+5] = z;
-          this.va[2*line_index] = 0;
-          this.va[2*line_index+1] = 0;
+  setWaves(){
+    let numParticles = this.AMOUNTX * this.AMOUNTY;
+    let positions = new Float32Array(numParticles*3);
+    let scales = new Float32Array(numParticles);
+    let i = 0, j = 0;
+    for(let ix = 0; ix < this.AMOUNTX; ix ++){
+      for(let iy = 0; iy < this.AMOUNTY; iy ++){
+        positions[ i ] = ix * this.SEPARATION - ((this.AMOUNTX * this.SEPARATION) / 2); // x
+        positions[ i + 1 ] = 0; // y
+        positions[ i + 2 ] = iy * this.SEPARATION - ((this.AMOUNTY * this.SEPARATION) / 2); // z
+        scales[ j ] = 1;
+        i += 3;
+        j ++;
       }
+    }
+    let geometry = new THREE.BufferGeometry();
+    let vertex : any = document.getElementById('vertexshader')?.textContent;
+    let fragment : any = document.getElementById('fragmentshader')?.textContent;
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions,3));
+    geometry.setAttribute('scale',new THREE.BufferAttribute(scales,1));
+    let material = new THREE.ShaderMaterial({
+      uniforms: {
+        color: {value: new THREE.Color(0xffffff)},
+      },
+      vertexShader: vertex,
+      fragmentShader: fragment
+    });
+    this.particles = new THREE.Points(geometry,material);
+    this.scene.add(this.particles);
   }
-  this.pos.needsUpdate = true;
 
-
-
+  waveUpdate(){
+    let i = 0, j = 0;
+    const positions = this.particles.geometry.attributes.position.array;
+    const scales = this.particles.geometry.attributes.scale.array;
+    for (let ix = 0; ix < this.AMOUNTX; ix++) {
+      for (let iy = 0; iy < this.AMOUNTY; iy++) {
+        positions[i+1] = (Math.sin((ix + this.count) * 0.3) * 10) +
+                (Math.sin((iy + this.count) * 0.5) * 10);
+                scales[j] = (Math.sin((ix + this.count) * 0.3) + 1) * 6 +
+                (Math.sin((iy + this.count) * 0.5) + 1) * 6;
+        i += 3;
+        j ++;
+      }
+    }
+    this.particles.geometry.attributes.position.needsUpdate = true;
+    this.particles.geometry.attributes.scale.needsUpdate = true;
+    this.count += 0.1;
   }
-
-
-
 
   @HostListener('window:resize', ['$event']) onResize(event : any) {
     this.camera.aspect = this.container.nativeElement.offsetWidth / this.container.nativeElement.offsetHeight;
@@ -116,9 +127,6 @@ b = 50;
     this.renderer.setSize(this.container.nativeElement.offsetWidth, this.container.nativeElement.offsetHeight);
   }
 
-
-  ngOnInit(): void {
-  }
 
 
 }

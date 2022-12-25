@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-   txt = "Hi , I'm";
-   subtxt = "I'm a";
+   txt = "Hi, I'm";
+   subtxt = "I'm";
    name = '';
    speed = 100;
    description = "";
