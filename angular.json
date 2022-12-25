@@ -23,7 +23,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/assets/image/webp/icon.png",
+              "src/assets/image/project-icon/icon.png",
               "src/assets"
             ],
             "styles": [
