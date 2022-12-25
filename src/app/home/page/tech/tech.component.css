@@ -12,3 +12,25 @@
 .sites{
   text-decoration: none;
 }
+
+
+.table,.paginate{
+  background-color: transparent !important;
+  color: white !important;
+  width: 100%;
+}
+.color{
+  color: white;
+  background-color: transparent;
+}
+
+
+
+.mat-column-position, .mat-column-skill  {
+  text-align: center !important;
+  color: white;
+}
+.mat-column-name{
+  text-align: left !important;
+  color: white;
+}
