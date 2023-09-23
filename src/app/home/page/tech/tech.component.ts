@@ -59,6 +59,9 @@ export class TechComponent implements AfterViewInit  {
     { skill : "★★☆☆☆", name : "RabbitMQ"},
     { skill : "★★☆☆☆", name : "WebRTC"},
     { skill : "★★☆☆☆", name : "Microservices"},
+    { skill : "★★★☆☆", name : "React"},
+    { skill : "★★★☆☆", name : "Zustand"},
+    { skill : "★★★☆☆", name : "ChakraUI"},
 
   ];
   dataSource : any;
