@@ -56,6 +56,8 @@ export class TechComponent implements AfterViewInit  {
     { skill : "★★★☆☆", name : "NodeMailer"},
     { skill : "★★★☆☆", name : "RedisDB"},
     { skill : "★★★☆☆", name : "Docker"},
+    { skill : "★★★☆☆", name : "Jest"},
+    { skill : "★★★☆☆", name : "Cypress"},
     { skill : "★★☆☆☆", name : "RabbitMQ"},
     { skill : "★★☆☆☆", name : "WebRTC"},
     { skill : "★★☆☆☆", name : "Microservices"},
