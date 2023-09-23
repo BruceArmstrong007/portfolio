@@ -1,0 +1,36 @@
+.grid{
+  width: 100%;
+  height: 100%;
+}
+.section{
+  padding: 50px;
+}
+.ico{
+  max-width: 50px;
+  height:auto;
+}
+.sites{
+  text-decoration: none;
+}
+
+
+.table,.paginate{
+  background-color: transparent !important;
+  color: white !important;
+  width: 100%;
+}
+.color{
+  color: white;
+  background-color: transparent;
+}
+
+
+
+.mat-column-position, .mat-column-skill  {
+  text-align: center !important;
+  color: white;
+}
+.mat-column-name{
+  text-align: left !important;
+  color: white;
+}

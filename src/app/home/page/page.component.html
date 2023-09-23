@@ -1,0 +1,88 @@
+<div class="shell">
+  <div class="nav color">
+    <button mat-mini-fab
+      class="border"
+      [routerLink]="'about'"
+    >
+      <mat-icon
+        class="icon"
+        matTooltip="About Me"
+        matTooltipPosition="above"
+        [ngClass]="{ iconSelected: currentRoute == 'AboutPage' }"
+        aria-hidden="false"
+        >assignment_ind</mat-icon
+      >
+    </button>
+    <button mat-mini-fab
+      class="border"
+      [routerLink]="'tech'"
+    >
+      <mat-icon
+        class="icon"
+        matTooltip="Technical Skills"
+        matTooltipPosition="above"
+        [ngClass]="{ iconSelected: currentRoute == 'TechPage' }"
+        aria-hidden="false"
+        >assessment</mat-icon
+      >
+    </button>
+    <button mat-mini-fab
+      class="border"
+      [routerLink]="'work'"
+    >
+      <mat-icon
+        class="icon"
+        matTooltip="My Works"
+        matTooltipPosition="above"
+        [ngClass]="{ iconSelected: currentRoute == 'WorkPage' }"
+        aria-hidden="false"
+        >work</mat-icon
+      >
+    </button>
+    <button mat-mini-fab
+      class="border"
+      [routerLink]="'contact'"
+    >
+      <mat-icon
+        class="icon"
+        matTooltip="My Contact"
+        matTooltipPosition="above"
+        [ngClass]="{ iconSelected: currentRoute == 'ContactPage' }"
+        aria-hidden="false"
+        >contacts</mat-icon
+      >
+    </button>
+  </div>
+  <div class="color" [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
+</div>
+
+<span class="sound" (click)="sound()">
+  <mat-icon
+    class="icon"
+    matTooltip="Music is OFF"
+    aria-hidden="false"
+    *ngIf="volume == false"
+    >volume_off</mat-icon
+  >
+  <mat-icon
+    class="icon"
+    matTooltip="Music is ON"
+    aria-hidden="false"
+    *ngIf="volume == true"
+    >volume_up</mat-icon
+  >
+</span>
+
+<a mat-raised-button matTooltip="Download Resume" target="_blank" href="assets/resume/Resume.pdf" class="resume">
+  Resume
+  <mat-icon
+  class="icon"
+  aria-hidden="false"
+  >download</mat-icon
+>
+</a>
+<audio #aud autoplay loop *ngIf="volume">
+  <source src="assets/music/space.ogg" type="audio/ogg" />
+</audio>
