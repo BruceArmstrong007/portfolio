@@ -9,7 +9,6 @@ import { environment } from 'src/environments/environment';
 export class AppComponent {
   constructor() {
     if (environment.production) {
-      console.warn(`🚨 Console output is disabled on production!`);
       console.log = function (): void {};
       console.debug = function (): void {};
       console.warn = function (): void {};
