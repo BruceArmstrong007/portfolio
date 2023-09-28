@@ -1,28 +1,5 @@
 <div class="shell">
-  <form class="form" [formGroup]="form" #contact="ngForm" method="post" (ngSubmit)="send($event)">
-    <div class="row">
-      <div class="col-12">
-        <mat-form-field  class="color w-75 p-0 m-0" appearance="standard">
-          <mat-label class="color">E-mail</mat-label>
-          <input type="email" class="color" matInput name="email" formControlName="email" placeholder="Enter your E-mail Address">
-          <mat-hint class="color" align="end">Required*</mat-hint>
-          <span class="prefix" matPrefix>From :</span>
-          <mat-icon matSuffix>email</mat-icon>
-          <mat-error *ngIf="f.email.hasError('required')">
-            Email is <strong>required</strong>.
-          </mat-error>
-          <mat-error *ngIf="f.email.hasError('pattern')">
-            Email is <strong>not valid</strong>.
-          </mat-error>
-          <mat-error *ngIf="f.email.hasError('minlength')">
-            Email should have <strong>minimum of 4 characters</strong>.
-          </mat-error>
-          <mat-error *ngIf="f.email.hasError('maxlength')">
-            Email can have <strong>maximum of 320 characters</strong>.
-          </mat-error>
-        </mat-form-field>
-      </div>
-    </div>
+  <form class="form" [formGroup]="form" #contact="ngForm" method="post" (ngSubmit)="send()">
     <div class="row">
       <div class="col-12">
       <mat-form-field  class="color w-75 p-0 m-0" appearance="standard">
